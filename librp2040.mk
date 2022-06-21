@@ -6,7 +6,8 @@ GDB = arm-none-eabi-gdb
 OPENOCD = openocd -f board/pico-debug.cfg
 
 flash: firmware.uf2
-	mount /mnt && cp firmware.uf2 /mnt
+	mount /mnt
+	cp firmware.uf2 /mnt
 
 firmware.elf: ${OBJ}
 	${LD} -Map=firmware.map --gc-sections -Tlibrp2040.ld -nostdlib -static ${LDFLAGS} -o $@ ${OBJ}
