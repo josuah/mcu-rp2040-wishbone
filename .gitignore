@@ -1,0 +1,10 @@
+*.a
+*.s
+*.o
+*.asm
+*.map
+*.elf
+*.hex
+*.uf2
+*.bin
+index.*
