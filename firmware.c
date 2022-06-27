@@ -6,10 +6,10 @@
 #define LED		25
 #define TRIGGER		22
 
-#define SPI_RX		16
-#define SPI_CSN		17
-#define SPI_SCK		18
-#define SPI_TX		19
+#define SPI_RX		4
+#define SPI_CSN		5
+#define SPI_SCK		6
+#define SPI_TX		7
 
 enum wb_state {
 	WB_STATE_PUT_COMMAND,
