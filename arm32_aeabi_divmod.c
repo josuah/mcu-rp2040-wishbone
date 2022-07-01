@@ -126,9 +126,9 @@ signed __aeabi_idiv(signed numerator, signed denominator)
 	if (denominator < 0)
 		denominator = -denominator;
 
-	uint_div_qr(numerator, denominator, &qr);
+	uint_div_qr((unsigned)numerator, (unsigned)denominator, &qr);
 
-	return qr.q;
+	return (signed)qr.q;
 }
 
 signed __aeabi_idivmod(signed numerator, signed denominator)
@@ -145,7 +145,7 @@ signed __aeabi_idivmod(signed numerator, signed denominator)
 	if (denominator < 0)
 		denominator = -denominator;
 
-	uint_div_qr(numerator, denominator, &qr);
+	uint_div_qr((unsigned)numerator, (unsigned)denominator, &qr);
 
-	return ret_idivmod_values(qr.q, qr.r);
+	return ret_idivmod_values((signed)qr.q, (signed)qr.r);
 }
