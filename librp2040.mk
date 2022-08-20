@@ -4,10 +4,10 @@ CC = arm-none-eabi-gcc -mthumb -mcpu=cortex-m0plus -msoft-float
 LD = arm-none-eabi-ld
 GDB = arm-none-eabi-gdb
 OPENOCD = openocd -f board/pico-debug.cfg
+MNT = /mnt
 
 flash: firmware.uf2
-	mount /mnt
-	cp firmware.uf2 /mnt
+	mount ${MNT} && cp firmware.uf2 ${MNT}
 
 firmware.elf: ${OBJ}
 	${LD} -Map=firmware.map --gc-sections -Tlibrp2040.ld -nostdlib -static ${LDFLAGS} -o $@ ${OBJ}

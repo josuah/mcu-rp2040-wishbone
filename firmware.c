@@ -64,8 +64,7 @@ wb_write(uint16_t addr, uint8_t size, uint32_t data)
 {
 	while (wb.state != WB_STATE_IDLE);
 	wb_pack(1, addr, size, data);
-	spi_io_callback(SPI0, 0x00, (uint8_t *)&SPI0->SSPDR);
-	spi_enable_interrupts(SPI0);
+	spi_io_start(SPI0);
 }
 
 void

@@ -202,6 +202,13 @@ spi_init(struct mcu_spi *spi, uint8_t clock_divider,
 }
 
 void
+spi_io_start(struct mcu_spi *spi)
+{
+	spi_io_callback(spi, 0, (uint8_t *)&spi->SSPDR);
+	spi_enable_interrupts(spi);
+}
+
+void
 spi_interrupt(struct mcu_spi *spi)
 {
 	/* on every byte, call the handler */

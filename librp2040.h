@@ -14133,6 +14133,9 @@ extern void spi_init(struct mcu_spi *spi, uint8_t clock_divider,
 /* interrupt handler for SPI events */
 extern void spi_io_callback(struct mcu_spi *spi, uint8_t rx, uint8_t volatile *tx);
 
+/* start the I/O on an SPI device, with the first rx 0x0 */
+extern void spi_io_start(struct mcu_spi *spi);
+
 /* set SPI interrupts on or off */
 extern void spi_enable_interrupts(struct mcu_spi *spi);
 extern void spi_disable_interrupts(struct mcu_spi *spi);
